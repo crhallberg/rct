@@ -5,11 +5,11 @@ import (
   "fmt"
   "os"
 
-	"github.com/kevinburke/rct/genetic"
-	"github.com/kevinburke/rct/geo"
-	"github.com/kevinburke/rct/rle"
-	"github.com/kevinburke/rct/td6"
-	"github.com/kevinburke/rct/tracks"
+  "github.com/kevinburke/rct/genetic"
+  "github.com/kevinburke/rct/geo"
+  "github.com/kevinburke/rct/rle"
+  "github.com/kevinburke/rct/td6"
+  "github.com/kevinburke/rct/tracks"
 )
 
 func check(e error) {
