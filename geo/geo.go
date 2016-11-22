@@ -17,6 +17,17 @@ type Point [3]float64
 
 var matrix [100][100][300]bool
 
+var TILE_DIRECTION_DELTA = [8][2]float64{
+	{-32,   0},
+	{0,    32},
+	{32,    0},
+	{0,   -32},
+	{-32,  32},
+	{32,   32},
+	{32,  -32},
+	{-32, -32},
+};
+
 func Vectors(elems []tracks.Element) []Vector {
 	var direction tracks.DirectionDelta
 	direction = 0
@@ -183,6 +194,14 @@ func AdvanceVector(v Vector, s *tracks.Segment) Vector {
 	dir := v.Dir + s.DirectionDelta
 	for ; dir >= 360; dir -= 360 {
 	}
+	dirIndex := int(math.Floor(float64(dir / 90)));
+	if (int(math.Floor(float64(dir / 45))) % 2 == 1) {
+		dirIndex += 4;
+	}
+
+	p[0] += TILE_DIRECTION_DELTA[dirIndex][0]
+	p[1] += TILE_DIRECTION_DELTA[dirIndex][1]
+
 	return Vector{p, dir}
 }
 
